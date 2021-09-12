@@ -40,6 +40,8 @@ def GPR : RegisterClass<"I960", [i32], 32,
      RIP, // return instruction pointer / r2 [r2 not accepted by assemblers]
    )>;
 
+def GPROperand : RegisterOperand<GPR>;
+
 /// @todo add support for describing long words via register pairs (has special alignment requirements)
 /// @todo add support for describing triple words via registers triples (aligned to four register bounds)
 /// @todo add support for describing quad words via registers quads (aligned)
