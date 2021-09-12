@@ -43,3 +43,29 @@ dag outs, dag ins, string asmstr, list<dag> pattern, InstrItInClass itin = NoIti
     let Inst{5} = s1;
     let Inst{4-0} = src1;
 }
+
+class COBRFormat<bits<8> opcode,
+dag outs, dag ins, string asmstr, list<dag> pattern, InstrItInClass itin = NoItinerary> : InstI960_1Word<outs, ins, asmstr, pattern, itin> {
+    bits<13> displacement;
+    bits<1> m1;
+    bits<5> src2;
+    bits<5> src1;
+    let Inst{31-24} = opcode;
+    let Inst{23-19} = src1;
+    let Inst{18-14} = src2;
+    let Inst{13} = m1;
+    // note that the bottom two bits of the displacement are always zero!
+    let Inst{12-2} = displacement{12-2};
+    let Inst{1-0} = 0b00;
+}
+
+class CTRLFormat<bits<8> opcode,
+dag outs, dag ins, string asmstr, list<dag> pattern, InstrItInClass itin = NoItinerary> : InstI960_1Word<outs, ins, asmstr, pattern, itin> {
+    // note that the bottom two bits of the displacement are always zero!
+    bits<24> displacement;
+    let Inst{31-24} = opcode;
+    let Inst{23-2} = displacement{23-2};
+    let Inst{1-0} = 0b00;
+}
+
+/// @todo implement MEMA and MEMB formats, they have many modes that need to be described
