@@ -40,6 +40,7 @@ StringRef Triple::getArchTypeName(ArchType Kind) {
   case hexagon:        return "hexagon";
   case hsail64:        return "hsail64";
   case hsail:          return "hsail";
+  case i960:           return "i960";
   case kalimba:        return "kalimba";
   case lanai:          return "lanai";
   case le32:           return "le32";
