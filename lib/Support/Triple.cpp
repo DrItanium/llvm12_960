@@ -700,6 +700,7 @@ static Triple::ObjectFormatType getDefaultFormat(const Triple &T) {
   case Triple::hexagon:
   case Triple::hsail64:
   case Triple::hsail:
+  case Triple::i960:
   case Triple::kalimba:
   case Triple::lanai:
   case Triple::le32:
@@ -1274,6 +1275,7 @@ static unsigned getArchPointerBitWidth(llvm::Triple::ArchType Arch) {
   case llvm::Triple::csky:
   case llvm::Triple::hexagon:
   case llvm::Triple::hsail:
+  case llvm::Triple::i960:
   case llvm::Triple::kalimba:
   case llvm::Triple::lanai:
   case llvm::Triple::le32:
@@ -1347,6 +1349,7 @@ Triple Triple::get32BitArchVariant() const {
   case Triple::msp430:
   case Triple::systemz:
   case Triple::ve:
+  case Triple::i960:
     T.setArch(UnknownArch);
     break;
 
@@ -1420,6 +1423,7 @@ Triple Triple::get64BitArchVariant() const {
   case Triple::tce:
   case Triple::tcele:
   case Triple::xcore:
+  case Triple::i960:
     T.setArch(UnknownArch);
     break;
 
