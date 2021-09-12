@@ -32,3 +32,18 @@ def : ProcessorModel<"generic", I960SchedModel, []>;
 // def : ProcessorModel<"i960SB", I960SchedModel, []>;
 // @todo add the other machine definitions
 
+
+def I960InstrInfo : InstrInfo;
+
+def I960AsmParser : AsmParser;
+def I960AsmParserVariant : AsmParserVariant;
+def I960AsmWriter : AsmWriter;
+
+
+def I960 : Target {
+    let InstructionSet = I960InstrInfo;
+    let AssemblyParsers = [I960AsmParser];
+    let AssemblyParserVariants = [I960AsmParserVariant];
+    let AssemblyWriters = [I960AsmWriter];
+    let AllowRegisterRenaming = 1;
+}
