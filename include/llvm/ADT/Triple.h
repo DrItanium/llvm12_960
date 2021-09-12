@@ -100,7 +100,8 @@ public:
     renderscript32, // 32-bit RenderScript
     renderscript64, // 64-bit RenderScript
     ve,             // NEC SX-Aurora Vector Engine
-    LastArchType = ve
+    i960,           // Intel i960
+    LastArchType = i960
   };
   enum SubArchType {
     NoSubArch,
@@ -800,6 +801,10 @@ public:
   bool isArm64e() const {
     return getArch() == Triple::aarch64 &&
            getSubArch() == Triple::AArch64SubArch_arm64e;
+  }
+
+  bool isI960() const {
+    return getArch() == Triple::i960;
   }
 
   /// Tests whether the target supports comdat
