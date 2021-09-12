@@ -17,8 +17,6 @@
 // rip (r2) - return instruction pointer (hardware)
 // r3-r15 - available as locals for subroutine
 
-// I've found the conventions in the i960 compiler's user guide. There are extended uses of some of the registers
-// g12 - PID bias register if generating code for position independent data
 
 def CC_I960 : CallingConv<[
 CCIfType<[i1, i8, i16], CCPromoteToType<i32>>,
@@ -26,4 +24,5 @@ CCIfSRet<CCIfType<[i32], CCAssignToReg<[G13]>>>,
 CCIfType<[i32,i64,f32,f64], CCAssignToReg<[G0,G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,G11,G12,G13]>>, // use globals registers for parameter passing
 CCAssignToStack<4, 4>>;
 
-
+// this isn't totally consistent, if G8-G12 are used for parameter passing then no need to preserve
+def CSR_I960 : CalleeSavedRegs<(add G8, G9, G10, G11, G12)>;
