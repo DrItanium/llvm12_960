@@ -628,6 +628,40 @@ enum {
 #include "ELFRelocs/Hexagon.def"
 };
 
+// i960 Specific e_flags (taken from gnu960's elf header)
+enum : unsigned {
+  EF_960_MASKPROC = 0x000000ff,
+  EF_960_INVALID = 0x00000000,
+  EF_960_SA = 0x000000001,
+  EF_960_SB = 0x000000002,
+  EF_960_KA = 0x000000003,
+  EF_960_KB = 0x000000004,
+  EF_960_MC = 0x000000005,
+  EF_960_CA = 0x000000006,
+  EF_960_CF = 0x000000007,
+  EF_960_JA = 0x000000008,
+  EF_960_JD = 0x000000009,
+  EF_960_JT = 0x00000000a,
+  EF_960_HA = 0x00000000b,
+  EF_960_HD = 0x00000000c,
+  EF_960_HT = 0x00000000d,
+  EF_960_RP = 0x00000000e,
+  EF_960_JL = 0x00000000f,
+  EF_960_GENERIC = 0x000000ff,
+
+  EF_960_CORE1 = 0x0000'0100,
+  EF_960_CORE2 = 0x0000'0200,
+  EF_960_K_SERIES = 0x00001000,
+  EF_960_M_SERIES = 0x00002000,
+  EF_960_C_SERIES = 0x00004000,
+  EF_960_J_SERIES = 0x00008000,
+  EF_960_H_SERIES = 0x00010000,
+  EF_960_FP1 = 0x00200000,
+};
+
+enum {
+#include "ELFRelocs/I960.def"
+};
 // ELF Relocation type for Lanai.
 enum {
 #include "ELFRelocs/Lanai.def"
