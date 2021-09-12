@@ -6,8 +6,11 @@
 
 include "llvm/Target/Target.td"
 
-ionclude "I960RegisterInfo.td"
-ionclude "I960CallingConv.td"
-ionclude "I960Schedule.td"
-ionclude "I960InstrFormats.td"
-ionclude "I960InstrInfo.td"
+include "I960RegisterInfo.td"
+include "I960CallingConv.td"
+include "I960Schedule.td"
+include "I960InstrFormats.td"
+include "I960InstrInfo.td"
+
+
+
