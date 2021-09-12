@@ -657,6 +657,9 @@ void ScalarEnumerationTraits<ELFYAML::ELF_REL>::enumeration(
   case ELF::EM_HEXAGON:
 #include "llvm/BinaryFormat/ELFRelocs/Hexagon.def"
     break;
+  case ELF::EM_960:
+#include "llvm/BinaryFormat/ELFRelocs/I960.def"
+    break;
   case ELF::EM_386:
   case ELF::EM_IAMCU:
 #include "llvm/BinaryFormat/ELFRelocs/i386.def"
